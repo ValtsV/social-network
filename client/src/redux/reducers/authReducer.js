@@ -33,6 +33,7 @@ export default function (state = initialState, action) {
     case actionTypes.REGISTER_FAIL:
     case actionTypes.LOGIN_FAIL:
     case actionTypes.AUTH_ERROR:
+    case actionTypes.LOGOUT:
       localStorage.removeItem("token");
 
       return {
