@@ -10,6 +10,10 @@ const actionTypes = {
   LOGIN_SUCCESS: "LOGIN_SUCCESS",
   LOGIN_FAIL: "LOGIN_FAIL",
   LOGOUT: "LOGOUT",
+  // profile
+  GET_PROFILE: "GET_PROFILE",
+  PROFILE_ERROR: "PROFILE_ERROR",
+  CLEAR_PROFILE: "CLEAR_PROFILE",
 };
 
 export default actionTypes;
