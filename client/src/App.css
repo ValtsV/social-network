@@ -1313,14 +1313,7 @@ img {
     width: 100%;
     margin-bottom: 0.2rem;
   }
-  .profile {
-    -ms-grid-columns: 1fr;
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-  .profile ul {
-    display: none;
-  }
+
   .profile-grid {
     grid-template-areas: "top" "about" "exp" "edu" "github";
   }
@@ -1341,5 +1334,30 @@ img {
 
   .table {
     width: 100%;
+  }
+
+  .round-img {
+    display: block;
+    margin: auto;
+    width: 150px;
+  }
+}
+
+@media (max-width: 600px) {
+  .profile ul {
+    display: none;
+  }
+
+  .profile {
+    -ms-grid-columns: 2fr 2fr;
+    grid-template-columns: 2fr 2fr;
+  }
+}
+
+@media (max-width: 450px) {
+  .profile {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    text-align: center;
   }
 }

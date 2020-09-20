@@ -12,11 +12,14 @@ const actionTypes = {
   LOGOUT: "LOGOUT",
   // profile
   GET_PROFILE: "GET_PROFILE",
+  GET_PROFILES: "GET_PROFILES",
   PROFILE_ERROR: "PROFILE_ERROR",
   CLEAR_PROFILE: "CLEAR_PROFILE",
   UPDATE_PROFILE: "UPDATE_PROFILE",
   // account
   ACCOUNT_DELETED: "ACCOUNT_DELETED",
+  // repos
+  GET_REPOS: "GET_REPOS",
 };
 
 export default actionTypes;
