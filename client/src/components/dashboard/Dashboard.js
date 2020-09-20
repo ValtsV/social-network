@@ -5,6 +5,7 @@ import { getCurrentProfile } from "../../redux/actions/profileActions";
 import Spinner from "../layout/Spinner";
 import { Link } from "react-router-dom";
 import Alert from "../layout/Alert";
+import DashboardActions from "./DashboardActions";
 
 const Dashboard = ({
   getCurrentProfile,
@@ -25,7 +26,9 @@ const Dashboard = ({
       </p>
       <Alert></Alert>
       {profile !== null ? (
-        <Fragment>has</Fragment>
+        <Fragment>
+          <DashboardActions />
+        </Fragment>
       ) : (
         <Fragment>
           <p>You have to creata a profile first!</p>

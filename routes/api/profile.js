@@ -65,13 +65,13 @@ router.post(
 
     const profileFields = {};
     profileFields.user = req.user.id;
-    if (company) profileFields.company = company;
-    if (website) profileFields.website = website;
-    if (location) profileFields.location = location;
-    if (bio) profileFields.bio = bio;
-    if (status) profileFields.status = status;
-    if (githubusername) profileFields.githubusername = githubusername;
-    if (skills) {
+    if (company !== null) profileFields.company = company;
+    if (website !== null) profileFields.website = website;
+    if (location !== null) profileFields.location = location;
+    if (bio !== null) profileFields.bio = bio;
+    if (status !== null) profileFields.status = status;
+    if (githubusername !== null) profileFields.githubusername = githubusername;
+    if (skills !== null) {
       profileFields.skills = skills.split(",").map((skill) => skill.trim());
     }
 
