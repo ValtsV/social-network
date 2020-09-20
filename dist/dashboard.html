@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../dist/css/style.min.css" />
+    <link rel="stylesheet" href="../../clientTheme/dist/scss/style.css" />
     <script
       src="https://kit.fontawesome.com/82dcc17237.js"
       crossorigin="anonymous"
@@ -53,12 +53,18 @@
       </div>
       <h2 class="my-2">Experience credentials</h2>
       <table class="table">
+        <!-- <colgroup>
+          <col class="t-1-width" />
+          <col />
+          <col />
+          <col />
+        </colgroup> -->
         <thead>
           <tr>
-            <th>Company</th>
-            <th class="hide-sm">Title</th>
-            <th class="hide-sm">Years</th>
-            <th></th>
+            <th class="thcompany">Company</th>
+            <th class="hide-sm thtitle">Title</th>
+            <th class="hide-sm thyears">Years</th>
+            <th class="thbutton"></th>
           </tr>
         </thead>
         <tbody>
@@ -66,13 +72,13 @@
             <td>Microsoft</td>
             <td class="hide-sm">Senior developer</td>
             <td class="hide-sm">Nov 2015 - Current</td>
-            <td><button class="btn btn-danger">Delete</button></td>
+            <td><button class="btn btn-danger btn-table">Delete</button></td>
           </tr>
           <tr>
             <td>Intel</td>
             <td class="hide-sm">Systems admin</td>
             <td class="hide-sm">Sep 2012 - Oct 2015</td>
-            <td><button class="btn btn-danger">Delete</button></td>
+            <td><button class="btn btn-danger btn-table">Delete</button></td>
           </tr>
         </tbody>
       </table>

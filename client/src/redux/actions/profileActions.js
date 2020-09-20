@@ -131,3 +131,79 @@ export const addEducation = (formData, history) => async (dispatch) => {
     });
   }
 };
+
+//  Delete Exp
+
+export const deleteExperience = (id) => async (dispatch) => {
+  try {
+    const res = await axios.delete(`/api/profile/experience/${id}`);
+
+    dispatch({
+      type: actionTypes.UPDATE_PROFILE,
+      payload: res.data,
+    });
+
+    dispatch(setAlert("Experience removed", "success"));
+  } catch (error) {
+    dispatch({
+      type: actionTypes.PROFILE_ERROR,
+      payload: {
+        msg: error.response.statusText,
+        status: error.response.status,
+      },
+    });
+  }
+};
+
+//  Delete Education
+
+export const deleteEducation = (id) => async (dispatch) => {
+  try {
+    const res = await axios.delete(`/api/profile/education/${id}`);
+
+    dispatch({
+      type: actionTypes.UPDATE_PROFILE,
+      payload: res.data,
+    });
+
+    dispatch(setAlert("Education removed", "success"));
+  } catch (error) {
+    dispatch({
+      type: actionTypes.PROFILE_ERROR,
+      payload: {
+        msg: error.response.statusText,
+        status: error.response.status,
+      },
+    });
+  }
+};
+
+// Delete acc n profile
+
+export const deleteAccount = (id) => async (dispatch) => {
+  if (window.confirm("Are you sure? This can NOT be undone!")) {
+    try {
+      const res = await axios.delete("/api/profile/");
+
+      dispatch({
+        type: actionTypes.CLEAR_PROFILE,
+      });
+
+      dispatch({
+        type: actionTypes.ACCOUNT_DELETED,
+      });
+
+      dispatch(
+        setAlert("Your account has been permanently deleted", "success")
+      );
+    } catch (error) {
+      dispatch({
+        type: actionTypes.PROFILE_ERROR,
+        payload: {
+          msg: error.response.statusText,
+          status: error.response.status,
+        },
+      });
+    }
+  }
+};

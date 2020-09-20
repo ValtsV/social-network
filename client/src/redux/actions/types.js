@@ -15,6 +15,8 @@ const actionTypes = {
   PROFILE_ERROR: "PROFILE_ERROR",
   CLEAR_PROFILE: "CLEAR_PROFILE",
   UPDATE_PROFILE: "UPDATE_PROFILE",
+  // account
+  ACCOUNT_DELETED: "ACCOUNT_DELETED",
 };
 
 export default actionTypes;
