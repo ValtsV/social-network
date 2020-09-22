@@ -4,8 +4,9 @@ import { Link, Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 import { login } from "../../redux/actions/authActions";
 import Alert from "../layout/Alert";
+import { removeAlerts } from "../../redux/actions/alertActions";
 
-const Login = ({ login, isAuthenticated }) => {
+const Login = ({ login, isAuthenticated, removeAlerts }) => {
   const [formData, setFormData] = useState({
     password: "",
     email: "",
@@ -32,8 +33,14 @@ const Login = ({ login, isAuthenticated }) => {
       <p className="lead">
         <i className="fas fa-user"></i> Sign Into Your Account
       </p>
-      <Alert></Alert>
-      <form className="form" onSubmit={(e) => onSubmit(e)}>
+      <Alert />
+      <form
+        className="form"
+        onSubmit={(e) => {
+          removeAlerts();
+          onSubmit(e);
+        }}
+      >
         <div className="form-group">
           <h4>Email:</h4>
           <input
@@ -70,10 +77,11 @@ const Login = ({ login, isAuthenticated }) => {
 Login.propTypes = {
   login: PropTypes.func.isRequired,
   isAuthenticated: PropTypes.bool,
+  removeAlerts: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
 });
 
-export default connect(mapStateToProps, { login })(Login);
+export default connect(mapStateToProps, { login, removeAlerts })(Login);

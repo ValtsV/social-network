@@ -3,8 +3,9 @@ import { Link, withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addEducation } from "../../redux/actions/profileActions";
+import { removeAlerts } from "../../redux/actions/alertActions";
 
-const AddEducation = ({ addEducation, history }) => {
+const AddEducation = ({ addEducation, history, removeAlerts }) => {
   const [formData, setFormData] = useState({
     school: "",
     degree: "",
@@ -122,7 +123,11 @@ const AddEducation = ({ addEducation, history }) => {
           ></textarea>
         </div>
         <input type="submit" className="btn btn-primary my-1" />
-        <Link className="btn my-1" to="/dashboard">
+        <Link
+          className="btn my-1"
+          to="/dashboard"
+          onClick={() => removeAlerts()}
+        >
           Go Back
         </Link>
       </form>
@@ -132,6 +137,9 @@ const AddEducation = ({ addEducation, history }) => {
 
 AddEducation.propTypes = {
   addEducation: PropTypes.func.isRequired,
+  removeAlerts: PropTypes.func.isRequired,
 };
 
-export default connect(null, { addEducation })(withRouter(AddEducation));
+export default connect(null, { addEducation, removeAlerts })(
+  withRouter(AddEducation)
+);

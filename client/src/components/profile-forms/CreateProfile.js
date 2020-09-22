@@ -4,8 +4,9 @@ import { connect } from "react-redux";
 import { createProfile } from "../../redux/actions/profileActions";
 import { Link, withRouter } from "react-router-dom";
 import Alert from "../layout/Alert";
+import { removeAlerts } from "../../redux/actions/alertActions";
 
-const CreateProfile = ({ createProfile, history }) => {
+const CreateProfile = ({ createProfile, removeAlerts, history }) => {
   const [formData, setFormData] = useState({
     company: "",
     website: "",
@@ -213,7 +214,11 @@ const CreateProfile = ({ createProfile, history }) => {
         ) : null}
         <Alert></Alert>
         <input type="submit" className="btn btn-primary my-1" />
-        <Link className="btn btn-light my-1" to="/dashboard">
+        <Link
+          className="btn btn-light my-1"
+          to="/dashboard"
+          onClick={() => removeAlerts()}
+        >
           Go Back
         </Link>
       </form>
@@ -223,6 +228,9 @@ const CreateProfile = ({ createProfile, history }) => {
 
 CreateProfile.propTypes = {
   createProfile: PropTypes.func.isRequired,
+  removeAlerts: PropTypes.func.isRequired,
 };
 
-export default connect(null, { createProfile })(withRouter(CreateProfile));
+export default connect(null, { createProfile, removeAlerts })(
+  withRouter(CreateProfile)
+);

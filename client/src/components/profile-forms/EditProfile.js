@@ -7,11 +7,13 @@ import {
 } from "../../redux/actions/profileActions";
 import { Link, withRouter } from "react-router-dom";
 import Alert from "../layout/Alert";
+import { removeAlerts } from "../../redux/actions/alertActions";
 
 const EditProfile = ({
   profile: { profile, loading },
   createProfile,
   getCurrentProfile,
+  removeAlerts,
   history,
 }) => {
   const [formData, setFormData] = useState({
@@ -242,7 +244,11 @@ const EditProfile = ({
         ) : null}
         <Alert></Alert>
         <input type="submit" className="btn btn-primary my-1" />
-        <Link className="btn btn-light my-1" to="/dashboard">
+        <Link
+          className="btn btn-light my-1"
+          to="/dashboard"
+          onClick={() => removeAlerts()}
+        >
           Go Back
         </Link>
       </form>
@@ -254,12 +260,15 @@ EditProfile.propTypes = {
   createProfile: PropTypes.func.isRequired,
   getCurrentProfile: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
+  removeAlerts: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   profile: state.profile,
 });
 
-export default connect(mapStateToProps, { createProfile, getCurrentProfile })(
-  withRouter(EditProfile)
-);
+export default connect(mapStateToProps, {
+  createProfile,
+  getCurrentProfile,
+  removeAlerts,
+})(withRouter(EditProfile));

@@ -30,7 +30,7 @@ const Dashboard = ({
       <p className="lead">
         <i className="fas fa-user"></i> Welcome {user && user.name}
       </p>
-      <Alert></Alert>
+      <Alert />
       {profile !== null ? (
         <Fragment>
           <DashboardActions />
@@ -38,7 +38,12 @@ const Dashboard = ({
           <Education education={profile.education} />
 
           <div className="my-2">
-            <button className="btn btn-danger" onClick={() => deleteAccount()}>
+            <button
+              className="btn btn-danger"
+              onClick={() => {
+                deleteAccount();
+              }}
+            >
               <i className="fas fa-user minus"></i> Delete My Account
             </button>
           </div>
@@ -67,6 +72,7 @@ const mapStateToProps = (state) => ({
   profile: state.profile,
 });
 
-export default connect(mapStateToProps, { getCurrentProfile, deleteAccount })(
-  Dashboard
-);
+export default connect(mapStateToProps, {
+  getCurrentProfile,
+  deleteAccount,
+})(Dashboard);

@@ -3,8 +3,9 @@ import { Link, withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addExperience } from "../../redux/actions/profileActions";
+import { removeAlerts } from "../../redux/actions/alertActions";
 
-const AddExperience = ({ addExperience, history }) => {
+const AddExperience = ({ addExperience, history, removeAlerts }) => {
   const [formData, setFormData] = useState({
     company: "",
     title: "",
@@ -114,7 +115,11 @@ const AddExperience = ({ addExperience, history }) => {
           ></textarea>
         </div>
         <input type="submit" className="btn btn-primary my-1" />
-        <Link className="btn my-1" to="/dashboard">
+        <Link
+          className="btn my-1"
+          to="/dashboard"
+          onClick={() => removeAlerts()}
+        >
           Go Back
         </Link>
       </form>
@@ -124,6 +129,9 @@ const AddExperience = ({ addExperience, history }) => {
 
 AddExperience.propTypes = {
   addExperience: PropTypes.func.isRequired,
+  removeAlerts: PropTypes.func.isRequired,
 };
 
-export default connect(null, { addExperience })(withRouter(AddExperience));
+export default connect(null, { addExperience, removeAlerts })(
+  withRouter(AddExperience)
+);

@@ -9,6 +9,7 @@ import {
   deletePost,
 } from "../../redux/actions/postActions";
 import Moment from "react-moment";
+import { removeAlerts } from "../../redux/actions/alertActions";
 
 const PostItem = ({
   addLike,
@@ -19,11 +20,18 @@ const PostItem = ({
   deletePost,
   showActions = true,
   history,
+  removeAlerts,
 }) => {
   return (
     <div className="post bg-white my-1 p-1">
       <div>
-        <Link to={`/profile/${user}`} onClick={() => clearProfile()}>
+        <Link
+          to={`/profile/${user}`}
+          onClick={() => {
+            removeAlerts();
+            clearProfile();
+          }}
+        >
           <img className="round-img" src={avatar} alt="dev_img" />
           <h4>{name}</h4>
         </Link>
@@ -33,7 +41,6 @@ const PostItem = ({
         <p className="post-date">
           Posted on <Moment format="YYYY/MM/DD">{date}</Moment>
         </p>
-        {/* {showActions && ( */}
         <Fragment>
           <button className="btn" onClick={(e) => addLike(_id)}>
             <i className="fas fa-thumbs-up"></i> <span>{likes.length}</span>
@@ -42,8 +49,10 @@ const PostItem = ({
             <i className="fas fa-thumbs-down"></i>
           </button>
           {showActions && (
-            <Link to={`posts/${_id}`}>
-              <button className="btn btn-primary">Discussion</button>
+            <Link to={`posts/${_id}`} onClick={() => removeAlerts()}>
+              <button className="btn btn-primary">
+                <i className="fas fa-comment"></i>
+              </button>
             </Link>
           )}
         </Fragment>
@@ -69,6 +78,7 @@ PostItem.propTypes = {
   removeLike: PropTypes.func.isRequired,
   deletePost: PropTypes.func.isRequired,
   showActions: PropTypes.bool,
+  removeAlerts: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -80,4 +90,5 @@ export default connect(mapStateToProps, {
   addLike,
   removeLike,
   deletePost,
+  removeAlerts,
 })(withRouter(PostItem));

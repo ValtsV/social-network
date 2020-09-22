@@ -49,6 +49,23 @@ export default function (state = initialState, action) {
           post._id === payload.postId ? { ...post, likes: payload.likes } : post
         ),
       };
+    case actionTypes.ADD_COMMENT:
+      return {
+        ...state,
+        post: { ...state.post, comments: payload },
+        loading: false,
+      };
+    case actionTypes.REMOVE_COMMENT:
+      return {
+        ...state,
+        post: {
+          ...state.post,
+          comments: state.post.comments.filter(
+            (comment) => comment._id !== payload
+          ),
+        },
+        loading: false,
+      };
 
     default:
       return state;

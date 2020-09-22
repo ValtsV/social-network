@@ -10,6 +10,9 @@ export default function (state = initialState, action) {
       return [...state, payload];
     case actionTypes.REMOVE_ALERT:
       return state.filter((alert) => alert.id !== payload);
+    case actionTypes.REMOVE_ALERT_FASTER:
+      return (state = initialState);
+
     default:
       return state;
   }
