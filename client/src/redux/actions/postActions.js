@@ -22,3 +22,45 @@ export const getPosts = () => async (dispatch) => {
     });
   }
 };
+
+// Add like
+
+export const addLike = (postId) => async (dispatch) => {
+  try {
+    const res = await axios.put(`/api/posts/like/${postId}`);
+
+    dispatch({
+      type: actionTypes.UPDATE_LIKES,
+      payload: { postId, likes: res.data },
+    });
+  } catch (error) {
+    dispatch({
+      type: actionTypes.POST_ERROR,
+      payload: {
+        msg: error.response.statusText,
+        status: error.response.status,
+      },
+    });
+  }
+};
+
+// Remove like
+
+export const removeLike = (postId) => async (dispatch) => {
+  try {
+    const res = await axios.put(`/api/posts/unlike/${postId}`);
+
+    dispatch({
+      type: actionTypes.UPDATE_LIKES,
+      payload: { postId, likes: res.data },
+    });
+  } catch (error) {
+    dispatch({
+      type: actionTypes.POST_ERROR,
+      payload: {
+        msg: error.response.statusText,
+        status: error.response.status,
+      },
+    });
+  }
+};

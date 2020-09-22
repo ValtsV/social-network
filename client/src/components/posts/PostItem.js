@@ -3,10 +3,13 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { clearProfile } from "../../redux/actions/profileActions";
+import { addLike, removeLike } from "../../redux/actions/postActions";
 
 const PostItem = ({
+  addLike,
+  removeLike,
   auth,
-  post: { _id, text, name, avatar, user, likes, comments, date },
+  post: { _id, text, name, avatar, user, likes },
   clearProfile,
 }) => {
   console.log(user);
@@ -21,10 +24,10 @@ const PostItem = ({
       </div>
       <div>
         <p className="my-1">{text}</p>
-        <button className="btn">
+        <button className="btn" onClick={(e) => addLike(_id)}>
           <i className="fas fa-thumbs-up"></i> <span>{likes.length}</span>
         </button>
-        <button className="btn">
+        <button className="btn" onClick={(e) => removeLike(_id)}>
           <i className="fas fa-thumbs-down"></i>
         </button>
         <Link to={`post/${_id}`} className="btn btn-primary">
@@ -50,4 +53,6 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, { clearProfile })(PostItem);
+export default connect(mapStateToProps, { clearProfile, addLike, removeLike })(
+  PostItem
+);
