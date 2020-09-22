@@ -64,3 +64,78 @@ export const removeLike = (postId) => async (dispatch) => {
     });
   }
 };
+
+// Delete post
+
+export const deletePost = (postId, history) => async (dispatch) => {
+  try {
+    await axios.delete(`/api/posts/${postId}`);
+
+    dispatch({
+      type: actionTypes.DELETE_POST,
+      payload: postId,
+    });
+
+    dispatch(setAlert("Post removed", "success"));
+
+    history.push("/posts");
+  } catch (error) {
+    dispatch({
+      type: actionTypes.POST_ERROR,
+      payload: {
+        msg: error.response.statusText,
+        status: error.response.status,
+      },
+    });
+  }
+};
+
+// Add post
+
+export const addPost = (formData) => async (dispatch) => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  try {
+    const res = await axios.post(`/api/posts`, formData, config);
+
+    dispatch({
+      type: actionTypes.ADD_POST,
+      payload: res.data,
+    });
+
+    dispatch(setAlert("Post created", "success"));
+  } catch (error) {
+    dispatch({
+      type: actionTypes.POST_ERROR,
+      payload: {
+        msg: error.response.statusText,
+        status: error.response.status,
+      },
+    });
+  }
+};
+
+// Get post
+
+export const getPost = (postId) => async (dispatch) => {
+  try {
+    const res = await axios.get(`/api/posts/${postId}`);
+
+    dispatch({
+      type: actionTypes.GET_POST,
+      payload: res.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: actionTypes.POST_ERROR,
+      payload: {
+        msg: error.response.statusText,
+        status: error.response.status,
+      },
+    });
+  }
+};

@@ -15,9 +15,27 @@ export default function (state = initialState, action) {
       return {
         ...state,
         posts: payload,
+        post: null,
         loading: false,
       };
 
+    case actionTypes.GET_POST:
+      return {
+        ...state,
+        post: payload,
+        loading: false,
+      };
+    case actionTypes.ADD_POST:
+      return {
+        ...state,
+        posts: [payload, ...state.posts],
+        loading: false,
+      };
+    case actionTypes.DELETE_POST:
+      return {
+        ...state,
+        posts: state.posts.filter((post) => post._id !== payload),
+      };
     case actionTypes.POST_ERROR:
       return {
         ...state,

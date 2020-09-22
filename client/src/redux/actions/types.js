@@ -22,8 +22,11 @@ const actionTypes = {
   GET_REPOS: "GET_REPOS",
   // posts
   GET_POSTS: "GET_POSTS",
+  GET_POST: "GET_POST",
   POST_ERROR: "POST_ERROR",
   UPDATE_LIKES: "UPDATE_LIKES",
+  DELETE_POST: "DELETE_POST",
+  ADD_POST: "ADD_POST",
 };
 
 export default actionTypes;

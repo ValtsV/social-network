@@ -78,6 +78,11 @@
   padding: 5rem 0;
 }
 
+.myt-2 {
+  display: inline-block;
+  margin-top: 2rem;
+}
+
 .container {
   max-width: 800px;
   margin: auto;
@@ -619,6 +624,12 @@ img {
 
 .post img {
   width: 150px;
+}
+
+.post-date {
+  color: #aaa;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
 }
 
 .auth-container {
