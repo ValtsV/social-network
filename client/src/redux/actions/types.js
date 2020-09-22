@@ -20,6 +20,9 @@ const actionTypes = {
   ACCOUNT_DELETED: "ACCOUNT_DELETED",
   // repos
   GET_REPOS: "GET_REPOS",
+  // posts
+  GET_POSTS: "GET_POSTS",
+  POST_ERROR: "POST_ERROR",
 };
 
 export default actionTypes;

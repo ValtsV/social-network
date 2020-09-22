@@ -16,6 +16,7 @@ const Profile = ({
   profile: { profile, loading },
   auth,
 }) => {
+  console.log(match.params.id);
   useEffect(() => {
     getProfileById(match.params.id);
   }, [getProfileById, match.params.id]);

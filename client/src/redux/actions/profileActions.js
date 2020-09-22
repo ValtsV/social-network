@@ -274,3 +274,9 @@ export const deleteAccount = (id) => async (dispatch) => {
     }
   }
 };
+
+export const clearProfile = () => (dispatch) => {
+  dispatch({
+    type: actionTypes.CLEAR_PROFILE,
+  });
+};
