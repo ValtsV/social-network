@@ -1,0 +1,6 @@
+{
+  "mongoURI": "mongodb+srv://admin:cde123@social-network.btigi.mongodb.net/social-network?retryWrites=true&w=majority",
+  "jwtSecret": "jwtSecretToken1",
+  "githubClientId": "dc8ceb76513cd0029b23",
+  "githubSecret": "4bf9b44c95f4a89f5c56abe94ff7e1f67f982986"
+}
