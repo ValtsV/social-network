@@ -149,6 +149,10 @@
   display: none !important;
 }
 
+.centered {
+  text-align: center;
+}
+
 @media (max-width: 700px) {
   .comment-flex-cont {
     flex-direction: column;

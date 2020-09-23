@@ -2,10 +2,11 @@ import React, { Fragment, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
 import Landing from "./components/layout/Landing";
-import Register from "./components/auth/Register";
-import Login from "./components/auth/Login";
-import Dashboard from "./components/dashboard/Dashboard";
-import PrivateRoute from "./components/routing/PrivateRoute";
+import Routes from "./components/routing/Routes";
+// import Register from "./components/auth/Register";
+// import Login from "./components/auth/Login";
+// import Dashboard from "./components/dashboard/Dashboard";
+// import PrivateRoute from "./components/routing/PrivateRoute";
 
 import { loadUser } from "./redux/actions/authActions";
 import setAuthToken from "./utils/setAuthToken";
@@ -13,14 +14,14 @@ import setAuthToken from "./utils/setAuthToken";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import "./App.css";
-import CreateProfile from "./components/profile-forms/CreateProfile";
-import EditProfile from "./components/profile-forms/EditProfile";
-import AddExperience from "./components/profile-forms/AddExperience";
-import AddEducation from "./components/profile-forms/AddEducation";
-import Profiles from "./components/profiles/Profiles";
-import Profile from "./components/profile/Profile";
-import Posts from "./components/posts/Posts";
-import Post from "./components/post/Post";
+// import CreateProfile from "./components/profile-forms/CreateProfile";
+// import EditProfile from "./components/profile-forms/EditProfile";
+// import AddExperience from "./components/profile-forms/AddExperience";
+// import AddEducation from "./components/profile-forms/AddEducation";
+// import Profiles from "./components/profiles/Profiles";
+// import Profile from "./components/profile/Profile";
+// import Posts from "./components/posts/Posts";
+// import Post from "./components/post/Post";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -36,8 +37,11 @@ const App = () => {
       <Router>
         <Fragment>
           <Navbar />
-          <Route exact path="/" component={Landing} />
-          <section className="container">
+          <Switch>
+            <Route exact path="/" component={Landing} />
+            <Route component={Routes} />
+          </Switch>
+          {/* <section className="container">
             <Switch>
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
@@ -67,7 +71,7 @@ const App = () => {
               <PrivateRoute exact path="/posts" component={Posts} />
               <PrivateRoute exact path="/posts/:id" component={Post} />
             </Switch>
-          </section>
+          </section> */}
         </Fragment>
       </Router>
     </Provider>
