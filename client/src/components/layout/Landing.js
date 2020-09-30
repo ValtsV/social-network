@@ -12,16 +12,17 @@ const Landing = ({ isAuthenticated }) => {
     <section className="landing">
       <div className="dark-overlay">
         <div className="landing-inner">
-          <h1 className="x-large">Social Network</h1>
+          <h1 className="x-large">Red Social</h1>
           <p className="lead">
-            Create developer profile, share posts and connect with others
+            Crea tu perfil de programador, añade tus mensajes y conectate con el
+            mundo
           </p>
           <div className="buttons">
             <Link to="register" className="btn btn-primary">
-              Sign Up
+              Regístrate
             </Link>
             <Link to="login" className="btn">
-              Login
+              Iniciar Sesión
             </Link>
           </div>
         </div>

@@ -9,14 +9,14 @@ const ProfileExperience = ({
     <h3 className="text-dark">{company}</h3>
     <p>
       <Moment format="YY/MM">{from}</Moment> -{" "}
-      {!to ? " Now" : <Moment format="YY/MM">{to}</Moment>}
+      {!to ? " Ahora" : <Moment format="YY/MM">{to}</Moment>}
     </p>
     <p>
-      <strong>Position: </strong>
+      <strong>Posición: </strong>
       {title}
     </p>
     <p>
-      <strong>Description: </strong>
+      <strong>Descripción: </strong>
       {description}
     </p>
   </div>

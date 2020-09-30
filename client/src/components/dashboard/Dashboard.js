@@ -26,9 +26,9 @@ const Dashboard = ({
     <Spinner />
   ) : (
     <Fragment>
-      <h1 className="large text-primary">Dashboard</h1>
+      <h1 className="large text-primary">Tu perfil</h1>
       <p className="lead">
-        <i className="fas fa-user"></i> Welcome {user && user.name}
+        <i className="fas fa-user"></i> Bienvenido {user && user.name}
       </p>
       <Alert />
       {profile !== null ? (
@@ -44,15 +44,15 @@ const Dashboard = ({
                 deleteAccount();
               }}
             >
-              <i className="fas fa-user minus"></i> Delete My Account
+              <i className="fas fa-user minus"></i> Borrar mi cuenta
             </button>
           </div>
         </Fragment>
       ) : (
         <Fragment>
-          <p>You have to create a profile first!</p>
+          <p>Tiene que crear una cuenta primero!</p>
           <Link to="/create-profile" className="btn btn-primary my-1">
-            Create Profile
+            Crear Perfil
           </Link>
         </Fragment>
       )}

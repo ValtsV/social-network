@@ -29,9 +29,9 @@ const Login = ({ login, isAuthenticated, removeAlerts }) => {
 
   return (
     <div className="auth-container">
-      <h1 className="large">Login</h1>
+      <h1 className="large">Entrar</h1>
       <p className="lead">
-        <i className="fas fa-user"></i> Sign Into Your Account
+        <i className="fas fa-user"></i> Iniciar sesión
       </p>
       <Alert />
       <form
@@ -42,7 +42,7 @@ const Login = ({ login, isAuthenticated, removeAlerts }) => {
         }}
       >
         <div className="form-group">
-          <h4>Email:</h4>
+          <h4>Correo electrónico:</h4>
           <input
             type="email"
             name="email"
@@ -51,7 +51,7 @@ const Login = ({ login, isAuthenticated, removeAlerts }) => {
           />
         </div>
         <div className="form-group">
-          <h4>Password:</h4>
+          <h4>Contraseña:</h4>
           <input
             type="password"
             name="password"
@@ -68,7 +68,7 @@ const Login = ({ login, isAuthenticated, removeAlerts }) => {
         />
       </form>
       <p className="m-1">
-        Don't have an account? <Link to="/register">Sign Up</Link>
+        No tienes la cuenta? <Link to="/register">Regístrate</Link>
       </p>
     </div>
   );

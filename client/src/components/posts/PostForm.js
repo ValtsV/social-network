@@ -9,7 +9,7 @@ const PostForm = ({ addPost }) => {
   return (
     <div className="post-form">
       <div className="post-form-header">
-        <h3>Say something...</h3>
+        <h3>Escribe algo...</h3>
       </div>
       <form
         className="form my-1"

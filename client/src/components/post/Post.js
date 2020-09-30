@@ -28,7 +28,7 @@ const Post = ({
   ) : (
     <Fragment>
       <Link to="/posts" className="btn my-1" onClick={() => removeAlerts()}>
-        Back to posts
+        Volver a las publicaciones
       </Link>
       <Alert />
       <PostItem post={post} showActions={false} />

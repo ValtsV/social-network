@@ -36,12 +36,11 @@ const AddEducation = ({ addEducation, history, removeAlerts }) => {
 
   return (
     <Fragment>
-      <h1 className="large text-primary">Add your education</h1>
+      <h1 className="large text-primary">Añade tu educación</h1>
       <p className="lead">
-        <i className="fas fa-code-branch"></i> Add any school or bootcamp that
-        you have attended
+        <i className="fas fa-code-branch"></i> Añade tu escuela o bootcamp
       </p>
-      <small>* = required field</small>
+      <small>* = obligatorio</small>
       <form
         className="form"
         onSubmit={(e) => {
@@ -52,7 +51,7 @@ const AddEducation = ({ addEducation, history, removeAlerts }) => {
         <div className="form-group">
           <input
             type="text"
-            placeholder="* School or bootcamp"
+            placeholder="* Escuela o bootcamp"
             name="school"
             value={school}
             onChange={(e) => onChange(e)}
@@ -62,7 +61,7 @@ const AddEducation = ({ addEducation, history, removeAlerts }) => {
         <div className="form-group">
           <input
             type="text"
-            placeholder="* Degree or certificate"
+            placeholder="* Título o certificado"
             name="degree"
             value={degree}
             onChange={(e) => onChange(e)}
@@ -72,14 +71,14 @@ const AddEducation = ({ addEducation, history, removeAlerts }) => {
         <div className="form-group">
           <input
             type="text"
-            placeholder="Field of study"
+            placeholder="Campo de estudios"
             name="fieldofstudy"
             value={fieldofstudy}
             onChange={(e) => onChange(e)}
           />
         </div>
         <div className="form-group">
-          <h4>From Date</h4>
+          <h4>Desde</h4>
           <input
             type="date"
             name="from"
@@ -88,7 +87,7 @@ const AddEducation = ({ addEducation, history, removeAlerts }) => {
           />
         </div>
         <div className="form-group">
-          <h4>To Date</h4>
+          <h4>Hasta</h4>
           <input
             type="date"
             name="to"
@@ -109,7 +108,7 @@ const AddEducation = ({ addEducation, history, removeAlerts }) => {
                 toggleDisabled(!toDateDisabled);
               }}
             />{" "}
-            Current
+            Actual
           </p>
         </div>
         <div className="form-group">
@@ -117,7 +116,7 @@ const AddEducation = ({ addEducation, history, removeAlerts }) => {
             name="description"
             cols="30"
             rows="5"
-            placeholder="Program Description"
+            placeholder="Descripción de programa"
             value={description}
             onChange={(e) => onChange(e)}
           ></textarea>
@@ -128,7 +127,7 @@ const AddEducation = ({ addEducation, history, removeAlerts }) => {
           to="/dashboard"
           onClick={() => removeAlerts()}
         >
-          Go Back
+          Volver
         </Link>
       </form>
     </Fragment>

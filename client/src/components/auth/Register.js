@@ -23,7 +23,7 @@ const Register = ({ setAlert, register, isAuthenticated, removeAlerts }) => {
     e.preventDefault();
     removeAlerts();
     if (password !== confirmPassword) {
-      setAlert("Passwords doesn't match", "danger");
+      setAlert("Contraseñas no coinciden", "danger");
     } else {
       register({ name, email, password });
     }
@@ -35,14 +35,14 @@ const Register = ({ setAlert, register, isAuthenticated, removeAlerts }) => {
 
   return (
     <div className="auth-container">
-      <h1 className="large">Sign Up</h1>
+      <h1 className="large">Regístrate</h1>
       <p className="lead">
-        <i className="fas fa-user"></i> Create Your Account
+        <i className="fas fa-user"></i> Crea Tu Cuenta
       </p>
       <Alert></Alert>
       <form className="form" onSubmit={(e) => onSubmit(e)}>
         <div className="form-group">
-          <h4>Name:</h4>
+          <h4>Nombre:</h4>
           <input
             type="text"
             name="name"
@@ -52,7 +52,7 @@ const Register = ({ setAlert, register, isAuthenticated, removeAlerts }) => {
           />
         </div>
         <div className="form-group">
-          <h4>Email:</h4>
+          <h4>Correo electrónico:</h4>
           <input
             type="email"
             name="email"
@@ -61,7 +61,7 @@ const Register = ({ setAlert, register, isAuthenticated, removeAlerts }) => {
             required
           />
           <small className="form-text">
-            This site uses Gravatar as profile image
+            Este sitio web utiliza Gravatar para imagen de perfil
           </small>
         </div>
         <div className="form-group">
@@ -75,7 +75,7 @@ const Register = ({ setAlert, register, isAuthenticated, removeAlerts }) => {
           />
         </div>
         <div className="form-group">
-          <h4>Confirm password:</h4>
+          <h4>Confirmar contraseña:</h4>
           <input
             type="password"
             name="confirmPassword"
@@ -90,7 +90,7 @@ const Register = ({ setAlert, register, isAuthenticated, removeAlerts }) => {
         />
       </form>
       <p className="m-1">
-        Already have an account? <Link href="login">Sign In</Link>
+        Ya tienes una cuenta? <Link href="login">Inicia sesión</Link>
       </p>
     </div>
   );

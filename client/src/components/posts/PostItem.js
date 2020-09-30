@@ -39,7 +39,7 @@ const PostItem = ({
       <div>
         <p className="my-1">{text}</p>
         <p className="post-date">
-          Posted on <Moment format="YYYY/MM/DD">{date}</Moment>
+          Subido en <Moment format="YYYY/MM/DD">{date}</Moment>
         </p>
         <Fragment>
           <button className="btn" onClick={(e) => addLike(_id)}>

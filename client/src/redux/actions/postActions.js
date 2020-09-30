@@ -76,7 +76,7 @@ export const deletePost = (postId, history) => async (dispatch) => {
       payload: postId,
     });
 
-    dispatch(setAlert("Post removed", "success"));
+    dispatch(setAlert("Publicacion borrada", "success"));
 
     history.push("/posts");
   } catch (error) {
@@ -107,7 +107,7 @@ export const addPost = (formData) => async (dispatch) => {
       payload: res.data,
     });
 
-    dispatch(setAlert("Post created", "success"));
+    dispatch(setAlert("Publicacion creada", "success"));
   } catch (error) {
     dispatch({
       type: actionTypes.POST_ERROR,
@@ -161,7 +161,7 @@ export const addComment = (postId, formData) => async (dispatch) => {
       payload: res.data,
     });
 
-    dispatch(setAlert("Comment added", "success"));
+    dispatch(setAlert("Comentario añadido", "success"));
   } catch (error) {
     dispatch({
       type: actionTypes.POST_ERROR,
@@ -184,7 +184,7 @@ export const deleteComment = (postId, commentId) => async (dispatch) => {
       payload: commentId,
     });
 
-    dispatch(setAlert("Comment removed", "success"));
+    dispatch(setAlert("Comentario borrado", "success"));
   } catch (error) {
     dispatch({
       type: actionTypes.POST_ERROR,

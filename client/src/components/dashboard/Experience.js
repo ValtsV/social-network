@@ -11,14 +11,18 @@ const Experience = ({ experience, deleteExperience }) => {
       <td className="hide-sm">{exp.title}</td>
       <td className="hide-sm">
         <Moment format="YYYY/MM">{exp.from}</Moment> -{" "}
-        {exp.to === null ? " Now" : <Moment format="YYYY/MM">{exp.to}</Moment>}
+        {exp.to === null ? (
+          " Ahora"
+        ) : (
+          <Moment format="YYYY/MM">{exp.to}</Moment>
+        )}
       </td>
       <td>
         <button
           className="btn btn-danger btn-table"
           onClick={() => deleteExperience(exp._id)}
         >
-          Delete
+          Borrar
         </button>
       </td>
     </tr>
@@ -26,13 +30,13 @@ const Experience = ({ experience, deleteExperience }) => {
 
   return (
     <Fragment>
-      <h2 className="my-2">Experience Credentials</h2>
+      <h2 className="my-2">Experiencia</h2>
       <table className="table">
         <thead>
           <tr>
-            <th className="thcompany">Company</th>
-            <th className="hide-sm thtitle">Title</th>
-            <th className="hide-sm thyears">Years</th>
+            <th className="thcompany">Empresa</th>
+            <th className="hide-sm thtitle">Puesto</th>
+            <th className="hide-sm thyears">Años</th>
             <th className="thbutton button-table" />
           </tr>
         </thead>

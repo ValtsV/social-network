@@ -13,22 +13,22 @@ const Navbar = ({
   const authLinks = (
     <ul>
       <li>
-        <Link to="/profiles">Developers</Link>
+        <Link to="/profiles">Programadores</Link>
       </li>
       <li>
-        <Link to="/posts">Posts</Link>
+        <Link to="/posts">Publicaciones</Link>
       </li>
       <li>
         <Link to="/dashboard">
           <i className="fas fa-user"></i>{" "}
-          <span className="hide-sm">Dashboard</span>
+          <span className="hide-sm">Tu perfil</span>
         </Link>
       </li>
       <li>
         <Link to="/login" onClick={logout}>
           {" "}
           <i className="fas fa-sign-out-alt"></i>{" "}
-          <span className="hide-sm">Logout</span>
+          <span className="hide-sm">Salir</span>
         </Link>
       </li>
     </ul>
@@ -37,13 +37,13 @@ const Navbar = ({
   const guestLinks = (
     <ul>
       <li>
-        <Link to="/profiles">Developers</Link>
+        <Link to="/profiles">Programadores</Link>
       </li>
       <li>
-        <Link to="/register">Register</Link>
+        <Link to="/register">Regístrate</Link>
       </li>
       <li>
-        <Link to="/login">Login</Link>
+        <Link to="/login">Iniciar sesión</Link>
       </li>
     </ul>
   );
@@ -52,7 +52,7 @@ const Navbar = ({
     <nav className="navbar bg-dark" onClick={() => removeAlerts()}>
       <h1>
         <Link to="/">
-          <i className="fas fa-code"></i> Social Network
+          <i className="fas fa-code"></i> Red Social
         </Link>
       </h1>
       {!loading && (

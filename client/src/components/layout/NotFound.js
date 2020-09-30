@@ -6,9 +6,9 @@ const NotFound = (props) => {
       <div className="centered my-2">
         <div>
           <h1 className="large text-primary">
-            <i className="fas fa-exclamation-triangle"></i> Page Not Found
+            <i className="fas fa-exclamation-triangle"></i> Página No Encontrada
           </h1>
-          <p className="lead">Sorry, this page doesn't exist</p>
+          <p className="lead">Lo siento, esta página no existe</p>
         </div>
       </div>
     </Fragment>

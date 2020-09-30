@@ -11,13 +11,13 @@ const ProfileAbout = ({
   <div className="profile-about bg-light p-2">
     {bio && (
       <Fragment>
-        <h2 className="text-primary">{name.trim().split(" ")[0]}s Bio</h2>
+        <h2 className="text-primary">Bio de {name.trim().split(" ")[0]}</h2>
         <p>{bio}</p>
         <div className="line"></div>
       </Fragment>
     )}
 
-    <h2 className="text-primary">Skill set</h2>
+    <h2 className="text-primary">Abilidades</h2>
     <div className="skills">
       {skills.map((skill, index) => (
         <div key={index} className="p-1">

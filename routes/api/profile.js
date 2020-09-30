@@ -19,7 +19,7 @@ router.get("/me", auth, async (req, res) => {
     }).populate("User", ["name", "avatar"]);
 
     if (!profile) {
-      return res.status(400).json({ msg: "There is no profile for this user" });
+      return res.status(400).json({ msg: "No existe perfil de este usuario" });
     }
 
     res.json(profile);
@@ -37,8 +37,8 @@ router.post(
   "/",
   [
     auth,
-    check("status", "Status is required").notEmpty(),
-    check("skills", "Skills is required").notEmpty(),
+    check("status", "Puesto es obligatorio").notEmpty(),
+    check("skills", "Abilidades son obligatorias").notEmpty(),
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -137,14 +137,14 @@ router.get("/user/:user_id", async (req, res) => {
       user: req.params.user_id,
     }).populate("user", ["name", "avatar"]);
     if (!profile) {
-      return res.status(400).json({ msg: "Profile not found" });
+      return res.status(400).json({ msg: "Perfil no encontrado" });
     }
 
     res.json(profile);
   } catch (error) {
     console.error(error.message);
     if (error.kind == "ObjectId") {
-      return res.status(400).json({ msg: "Profile not found" });
+      return res.status(400).json({ msg: "Perfil no encontrado" });
     }
     res.status(500).send("Server error");
   }
@@ -165,7 +165,7 @@ router.delete("/", auth, async (req, res) => {
     //      remove user
     await User.findOneAndRemove({ _id: req.user.id });
 
-    res.json({ msg: "User deleted" });
+    res.json({ msg: "Usuario borrado" });
   } catch (error) {
     console.error(error.message);
     res.status(500).send("Server error");
@@ -181,9 +181,9 @@ router.put(
   [
     auth,
     [
-      check("title", "Title is requiered").notEmpty(),
-      check("company", "Company is requiered").notEmpty(),
-      check("from", "From date is requiered").notEmpty(),
+      check("title", "Título es obligatorio").notEmpty(),
+      check("company", "Empresa es obligatoria").notEmpty(),
+      check("from", "Fecha de comienzo es obligatoria").notEmpty(),
     ],
   ],
   async (req, res) => {
@@ -261,11 +261,11 @@ router.put(
   [
     auth,
     [
-      check("school", "School is requiered").notEmpty(),
-      check("degree", "Degree is requiered").notEmpty(),
-      check("fieldofstudy", "Field of study is requiered").notEmpty(),
+      check("school", "Escuela es obligatoria").notEmpty(),
+      check("degree", "Título es obligatorio").notEmpty(),
+      check("fieldofstudy", "Campo de estudios es obligatorio").notEmpty(),
 
-      check("from", "From date is requiered").notEmpty(),
+      check("from", "Fecha desde es obligatoria").notEmpty(),
     ],
   ],
   async (req, res) => {
@@ -355,7 +355,7 @@ router.get("/github/:username", (req, res) => {
         console.error(error);
       }
       if (response.statusCode !== 200) {
-        return res.status(404).json({ msg: "No github profile found" });
+        return res.status(404).json({ msg: "Perfil de Github no encontrado" });
       }
       res.json(JSON.parse(body));
     });

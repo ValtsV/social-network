@@ -8,13 +8,13 @@ const DashboardActions = ({ removeAlerts }) => {
   return (
     <div className="dash-buttons" onClick={() => removeAlerts()}>
       <Link to="/edit-profile" className="btn">
-        <i className="fas fa-user-circle text-primary"></i> Edit profile
+        <i className="fas fa-user-circle text-primary"></i> Editar perfil
       </Link>
       <Link to="/add-experience" className="btn">
-        <i className="fab fa-black-tie text-primary"></i> Add experience
+        <i className="fab fa-black-tie text-primary"></i> Añadir experiencia
       </Link>
       <Link to="/add-education" className="btn">
-        <i className="fas fa-graduation-cap text-primary"></i> Add education
+        <i className="fas fa-graduation-cap text-primary"></i> Añadir educación
       </Link>
     </div>
   );

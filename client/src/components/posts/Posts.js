@@ -16,13 +16,13 @@ const Posts = ({ post: { posts, loading }, getPosts }) => {
     <Spinner />
   ) : (
     <Fragment>
-      <h1 className="large text-primary">Posts</h1>
+      <h1 className="large text-primary">Publicaciones</h1>
       <p className="lead">
-        <i className="fas fa-user"></i> Welcome to the community
+        <i className="fas fa-user"></i> Bienvenido a la comunidad
       </p>
       <PostForm />
       <p className="lead">
-        <i className="fas fa-user"></i> Check out what community is saying
+        <i className="fas fa-user"></i> Descubre que dicen otros programadores
       </p>
       <Alert></Alert>
 

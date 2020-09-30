@@ -12,7 +12,7 @@ const User = require("../../models/User");
 //  @access Private
 router.post(
   "/",
-  [auth, [check("text", "Text is required").notEmpty()]],
+  [auth, [check("text", "Añade texto").notEmpty()]],
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -61,14 +61,14 @@ router.get("/:id", auth, async (req, res) => {
     const post = await Post.findById(req.params.id);
 
     if (!post) {
-      return res.status(404).json({ msg: "Post not found" });
+      return res.status(404).json({ msg: "Publicación no encontrada" });
     }
 
     res.json(post);
   } catch (error) {
     console.error(error.message);
     if (error.kind === "ObjectId") {
-      return res.status(404).json({ msg: "Post not found" });
+      return res.status(404).json({ msg: "Publicación no encontrada" });
     }
     res.status(500).send("Server error");
   }
@@ -85,20 +85,20 @@ router.delete("/:id", auth, async (req, res) => {
     //    Check user
 
     if (post.user.toString() !== req.user.id) {
-      return res.status(401).json({ msg: "User not authorized" });
+      return res.status(401).json({ msg: "Usuario no autorizado" });
     }
 
     if (!post) {
-      return res.status(404).json({ msg: "Post not found" });
+      return res.status(404).json({ msg: "Publicación no encontrada" });
     }
 
     await post.remove();
 
-    res.json("Post removed");
+    res.json("Publicación borrada");
   } catch (error) {
     console.error(error.message);
     if (error.kind === "ObjectId") {
-      return res.status(404).json({ msg: "Post not found" });
+      return res.status(404).json({ msg: "Publicación no encontrada" });
     }
     res.status(500).send("Server error");
   }
@@ -118,7 +118,7 @@ router.put("/like/:id", auth, async (req, res) => {
       post.likes.filter((like) => like.user.toString() === req.user.id).length >
       0
     ) {
-      return res.status(400).json({ msg: "Post already liked" });
+      return res.status(400).json({ msg: "Ya has dado me gusta" });
     }
 
     post.likes.unshift({ user: req.user.id });
@@ -146,7 +146,7 @@ router.put("/unlike/:id", auth, async (req, res) => {
       post.likes.filter((like) => like.user.toString() === req.user.id)
         .length === 0
     ) {
-      return res.status(400).json({ msg: "Post has not been liked" });
+      return res.status(400).json({ msg: "No has dado me gusta" });
     }
 
     const removeIndex = post.likes
@@ -169,7 +169,7 @@ router.put("/unlike/:id", auth, async (req, res) => {
 //  @access Private
 router.post(
   "/comment/:id",
-  [auth, [check("text", "Text is required").notEmpty()]],
+  [auth, [check("text", "Añade texto").notEmpty()]],
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -212,11 +212,11 @@ router.delete("/comment/:id/:comment_id", auth, async (req, res) => {
     );
 
     if (!comment) {
-      return res.status(404).json({ msg: "Comment does not exist" });
+      return res.status(404).json({ msg: "Comentario no encontrado" });
     }
 
     if (comment.user.toString() !== req.user.id) {
-      return res.status(401).json({ msg: "User not authorized" });
+      return res.status(401).json({ msg: "Usuario no autorizado" });
     }
 
     const removeIndex = post.comments

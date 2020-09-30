@@ -51,7 +51,7 @@ const CommentItem = ({
           <div>
             <div className="post-date-flex-cont">
               <p className="post-date post-date-small-screen">
-                Posted on <Moment format="YYYY/MM/DD">{date}</Moment>
+                Subido en <Moment format="YYYY/MM/DD">{date}</Moment>
               </p>
             </div>
           </div>

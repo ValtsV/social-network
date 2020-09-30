@@ -102,7 +102,7 @@ export const createProfile = (formData, history, edit = false) => async (
     dispatch({ type: actionTypes.GET_PROFILE, payload: res.data });
 
     dispatch(
-      setAlert(edit ? "Profile updated!" : "Profile created!", "success")
+      setAlert(edit ? "Perfil actualizado" : "Perfil creado", "success")
     );
 
     if (!edit) {
@@ -142,7 +142,7 @@ export const addExperience = (formData, history) => async (dispatch) => {
       payload: res.data,
     });
 
-    dispatch(setAlert("Experience Added", "success"));
+    dispatch(setAlert("Experiencia añadida", "success"));
 
     history.push("/dashboard");
   } catch (error) {
@@ -179,7 +179,7 @@ export const addEducation = (formData, history) => async (dispatch) => {
       payload: res.data,
     });
 
-    dispatch(setAlert("Education Added", "success"));
+    dispatch(setAlert("Educación añadida", "success"));
 
     history.push("/dashboard");
   } catch (error) {
@@ -210,7 +210,7 @@ export const deleteExperience = (id) => async (dispatch) => {
       payload: res.data,
     });
 
-    dispatch(setAlert("Experience removed", "success"));
+    dispatch(setAlert("Experiencia borrada", "success"));
   } catch (error) {
     dispatch({
       type: actionTypes.PROFILE_ERROR,
@@ -233,7 +233,7 @@ export const deleteEducation = (id) => async (dispatch) => {
       payload: res.data,
     });
 
-    dispatch(setAlert("Education removed", "success"));
+    dispatch(setAlert("Educación borrada", "success"));
   } catch (error) {
     dispatch({
       type: actionTypes.PROFILE_ERROR,
@@ -248,7 +248,9 @@ export const deleteEducation = (id) => async (dispatch) => {
 // Delete acc n profile
 
 export const deleteAccount = (id) => async (dispatch) => {
-  if (window.confirm("Are you sure? This can NOT be undone!")) {
+  if (
+    window.confirm("Esta seguro? Su perfil estará borrado permanentemente!")
+  ) {
     try {
       await axios.delete("/api/profile/");
 
@@ -260,9 +262,7 @@ export const deleteAccount = (id) => async (dispatch) => {
         type: actionTypes.ACCOUNT_DELETED,
       });
 
-      dispatch(
-        setAlert("Your account has been permanently deleted", "success")
-      );
+      dispatch(setAlert("Su cuenta se ha borrado permanentemente", "success"));
     } catch (error) {
       dispatch({
         type: actionTypes.PROFILE_ERROR,

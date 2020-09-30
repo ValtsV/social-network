@@ -10,7 +10,7 @@ const CommentForm = ({ postId, addComment, removeAlerts }) => {
   return (
     <div className="post-form">
       <div className="post-form-header">
-        <h3>Leave a comment</h3>
+        <h3>Deja un comentario</h3>
       </div>
       <form
         className="form my-1"
