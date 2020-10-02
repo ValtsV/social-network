@@ -9,7 +9,7 @@ const ProfileEducation = ({
     <h3 className="text-dark">{school}</h3>
     <p>
       <Moment format="YY/MM">{from}</Moment> -{" "}
-      {!to ? " Ahora" : <Moment format="YY/MM">{to}</Moment>}
+      {!to ? " Ahora" : <Moment format="MM/YYYY">{to}</Moment>}
     </p>
     <p>
       <strong>Título: </strong>
@@ -27,7 +27,7 @@ const ProfileEducation = ({
 );
 
 ProfileEducation.propTypes = {
-  education: PropTypes.array.isRequired,
+  education: PropTypes.object.isRequired,
 };
 
 export default ProfileEducation;

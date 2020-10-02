@@ -51,11 +51,12 @@ const CreateProfile = ({ createProfile, removeAlerts, history }) => {
     <Fragment>
       <h1 className="large text-primary">Crea tu perfil</h1>
       <p className="lead">
-        <i className="fas fa-user"></i>Añade información sobre ti
+        <i className="fas fa-user"></i> Añade información sobre ti
       </p>
       <small>* = obligatorio</small>
       <form className="form" onSubmit={(e) => onSubmit(e)}>
         <div className="form-group">
+          <p>* Ocupación</p>
           <select name="status" value={status} onChange={(e) => onChange(e)}>
             <option value="0">* Elige uno</option>
             <option value="Developer">Desarollador</option>
@@ -67,12 +68,11 @@ const CreateProfile = ({ createProfile, removeAlerts, history }) => {
             <option value="Intern">Practicante</option>
             <option value="Other">Otro</option>
           </select>
-          <small className="form-text">Añade información sobre tu puesto</small>
         </div>
         <div className="form-group">
+          <p>Empresa</p>
           <input
             type="text"
-            placeholder="Empresa"
             name="company"
             value={company}
             onChange={(e) => onChange(e)}
@@ -82,9 +82,9 @@ const CreateProfile = ({ createProfile, removeAlerts, history }) => {
           </small>
         </div>
         <div className="form-group">
+          <p>Página Web</p>
           <input
             type="text"
-            placeholder="Página Web"
             name="website"
             value={website}
             onChange={(e) => onChange(e)}
@@ -94,31 +94,30 @@ const CreateProfile = ({ createProfile, removeAlerts, history }) => {
           </small>
         </div>
         <div className="form-group">
+          <p>Locación</p>
           <input
             type="text"
-            placeholder="Locación"
             name="location"
             value={location}
             onChange={(e) => onChange(e)}
           />
-          <small className="form-text">Ciudad</small>
         </div>
         <div className="form-group">
+          <p>* Habilidades</p>
           <input
             type="text"
-            placeholder="* Abilidades"
             name="skills"
             value={skills}
             onChange={(e) => onChange(e)}
           />
           <small className="form-text">
-            Por favor separa cada abilidad con coma (HTML,CSS,JavaScript,PHP)
+            Por favor separa cada habilidad con coma (HTML,CSS,JavaScript,PHP)
           </small>
         </div>
         <div className="form-group">
+          <p>Usuario de Github</p>
           <input
             type="text"
-            placeholder="Usuario de Github"
             name="githubusername"
             value={githubusername}
             onChange={(e) => onChange(e)}
@@ -129,13 +128,12 @@ const CreateProfile = ({ createProfile, removeAlerts, history }) => {
           </small>
         </div>
         <div className="form-group">
+          <p>Información sobre ti</p>
           <textarea
-            placeholder="Información sobre ti"
             name="bio"
             value={bio}
             onChange={(e) => onChange(e)}
           ></textarea>
-          <small className="form-text">Añade información sobre ti</small>
         </div>
 
         <div className="my-2">
@@ -208,7 +206,7 @@ const CreateProfile = ({ createProfile, removeAlerts, history }) => {
           </Fragment>
         ) : null}
         <Alert></Alert>
-        <input type="submit" className="btn btn-primary my-1" />
+        <input type="submit" value="Subir" className="btn btn-primary my-1" />
         <Link
           className="btn btn-light my-1"
           to="/dashboard"

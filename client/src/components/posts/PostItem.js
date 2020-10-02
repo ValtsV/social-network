@@ -39,23 +39,24 @@ const PostItem = ({
       <div>
         <p className="my-1">{text}</p>
         <p className="post-date">
-          Subido en <Moment format="YYYY/MM/DD">{date}</Moment>
+          Subido en <Moment format="DD/MM/YYYY">{date}</Moment>
         </p>
-        <Fragment>
-          <button className="btn" onClick={(e) => addLike(_id)}>
-            <i className="fas fa-thumbs-up"></i> <span>{likes.length}</span>
-          </button>
-          <button className="btn" onClick={(e) => removeLike(_id)}>
-            <i className="fas fa-thumbs-down"></i>
-          </button>
-          {showActions && (
+        {showActions && (
+          <Fragment>
+            <button className="btn" onClick={(e) => addLike(_id)}>
+              <i className="fas fa-thumbs-up"></i> <span>{likes.length}</span>
+            </button>
+            <button className="btn" onClick={(e) => removeLike(_id)}>
+              <i className="fas fa-thumbs-down"></i>
+            </button>
+
             <Link to={`posts/${_id}`} onClick={() => removeAlerts()}>
               <button className="btn btn-primary">
                 <i className="fas fa-comment"></i>
               </button>
             </Link>
-          )}
-        </Fragment>
+          </Fragment>
+        )}
         {!auth.loading && user === auth.user._id && (
           <button
             type="button"

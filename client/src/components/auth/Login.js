@@ -46,6 +46,7 @@ const Login = ({ login, isAuthenticated, removeAlerts }) => {
           <input
             type="email"
             name="email"
+            placeholder="tortuga@gmail.com"
             value={email}
             onChange={(e) => onChange(e)}
           />
@@ -55,6 +56,7 @@ const Login = ({ login, isAuthenticated, removeAlerts }) => {
           <input
             type="password"
             name="password"
+            placeholder="123123"
             value={password}
             onChange={(e) => onChange(e)}
             minLength="6"
@@ -63,12 +65,15 @@ const Login = ({ login, isAuthenticated, removeAlerts }) => {
 
         <input
           type="submit"
-          value="Login"
+          value="Entrar"
           className="btn btn-primary btn-wide"
         />
       </form>
       <p className="m-1">
-        No tienes la cuenta? <Link to="/register">Regístrate</Link>
+        No tienes la cuenta?{" "}
+        <Link to="/register" onClick={() => removeAlerts()}>
+          Regístrate
+        </Link>
       </p>
     </div>
   );

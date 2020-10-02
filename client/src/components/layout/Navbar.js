@@ -43,7 +43,12 @@ const Navbar = ({
         <Link to="/register">Regístrate</Link>
       </li>
       <li>
-        <Link to="/login">Iniciar sesión</Link>
+        <Link to="/login" className="screen-sm">
+          <i className="fas fa-sign-in-alt"></i>
+        </Link>
+        <Link to="/login" className="screen-bg">
+          Iniciar sesión
+        </Link>
       </li>
     </ul>
   );

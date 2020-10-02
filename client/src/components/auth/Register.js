@@ -65,7 +65,7 @@ const Register = ({ setAlert, register, isAuthenticated, removeAlerts }) => {
           </small>
         </div>
         <div className="form-group">
-          <h4>Password:</h4>
+          <h4>Contraseña:</h4>
           <input
             type="password"
             name="password"
@@ -85,12 +85,15 @@ const Register = ({ setAlert, register, isAuthenticated, removeAlerts }) => {
         </div>
         <input
           type="submit"
-          value="Register"
+          value="Regístrate"
           className="btn btn-primary btn-wide"
         />
       </form>
       <p className="m-1">
-        Ya tienes una cuenta? <Link href="login">Inicia sesión</Link>
+        Ya tienes una cuenta?{" "}
+        <Link to="/login" onClick={() => removeAlerts()}>
+          Inicia sesión
+        </Link>
       </p>
     </div>
   );

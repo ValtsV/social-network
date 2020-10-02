@@ -16,7 +16,6 @@ const Profile = ({
   profile: { profile, loading },
   auth,
 }) => {
-  console.log(match.params.id);
   useEffect(() => {
     getProfileById(match.params.id);
   }, [getProfileById, match.params.id]);
@@ -27,19 +26,21 @@ const Profile = ({
         <Spinner />
       ) : (
         <Fragment>
-          <Link to="/profiles" className="btn btn-dark ">
-            Perfiles
-          </Link>
-          <Link to="/posts" className="btn btn-dark ">
-            Publicaciones
-          </Link>
-          {auth.isAuthenticated &&
-            auth.loading === false &&
-            auth.user._id === profile.user._id && (
-              <Link to="/edit-profile" className="btn btn-light">
-                Editar perfil
-              </Link>
-            )}
+          <div className="dash-buttons">
+            <Link to="/profiles" className="btn btn-dark ">
+              Perfiles
+            </Link>
+            <Link to="/posts" className="btn btn-dark ">
+              Publicaciones
+            </Link>
+            {auth.isAuthenticated &&
+              auth.loading === false &&
+              auth.user._id === profile.user._id && (
+                <Link to="/edit-profile" className="btn btn-light">
+                  Editar perfil
+                </Link>
+              )}
+          </div>
 
           <div className="profile-grid my-1">
             <ProfileTop profile={profile} />

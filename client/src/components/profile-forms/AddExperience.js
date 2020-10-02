@@ -42,9 +42,9 @@ const AddExperience = ({ addExperience, history, removeAlerts }) => {
         }}
       >
         <div className="form-group">
+          <p>* Puesto</p>
           <input
             type="text"
-            placeholder="* Puesto"
             name="title"
             value={title}
             onChange={(e) => onChange(e)}
@@ -52,9 +52,9 @@ const AddExperience = ({ addExperience, history, removeAlerts }) => {
           />
         </div>
         <div className="form-group">
+          <p>* Empresa</p>
           <input
             type="text"
-            placeholder="* Empresa"
             name="company"
             value={company}
             onChange={(e) => onChange(e)}
@@ -62,16 +62,16 @@ const AddExperience = ({ addExperience, history, removeAlerts }) => {
           />
         </div>
         <div className="form-group">
+          <p>Locación</p>
           <input
             type="text"
-            placeholder="Locación"
             name="location"
             value={location}
             onChange={(e) => onChange(e)}
           />
         </div>
         <div className="form-group">
-          <h4>Desde</h4>
+          <p>Desde</p>
           <input
             type="date"
             name="from"
@@ -80,7 +80,7 @@ const AddExperience = ({ addExperience, history, removeAlerts }) => {
           />
         </div>
         <div className="form-group">
-          <h4>Hasta</h4>
+          <p>Hasta</p>
           <input
             type="date"
             name="to"
@@ -105,16 +105,16 @@ const AddExperience = ({ addExperience, history, removeAlerts }) => {
           </p>
         </div>
         <div className="form-group">
+          <p>Descripción de puesto</p>
           <textarea
             name="description"
             cols="30"
             rows="5"
-            placeholder="Descripción de puesto"
             value={description}
             onChange={(e) => onChange(e)}
           ></textarea>
         </div>
-        <input type="submit" className="btn btn-primary my-1" />
+        <input type="submit" value="Subir" className="btn btn-primary my-1" />
         <Link
           className="btn my-1"
           to="/dashboard"

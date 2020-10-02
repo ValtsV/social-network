@@ -27,9 +27,12 @@ const Posts = ({ post: { posts, loading }, getPosts }) => {
       <Alert></Alert>
 
       <div className="posts">
-        {posts.map((post) => (
-          <PostItem key={post._id} post={post} />
-        ))}
+        {posts
+          .slice(0)
+          .reverse()
+          .map((post) => (
+            <PostItem key={post._id} post={post} />
+          ))}
       </div>
     </Fragment>
   );

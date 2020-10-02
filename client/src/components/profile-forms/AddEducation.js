@@ -49,9 +49,9 @@ const AddEducation = ({ addEducation, history, removeAlerts }) => {
         }}
       >
         <div className="form-group">
+          <p>* Escuela o bootcamp</p>
           <input
             type="text"
-            placeholder="* Escuela o bootcamp"
             name="school"
             value={school}
             onChange={(e) => onChange(e)}
@@ -59,9 +59,9 @@ const AddEducation = ({ addEducation, history, removeAlerts }) => {
           />
         </div>
         <div className="form-group">
+          <p>* Título o certificado</p>
           <input
             type="text"
-            placeholder="* Título o certificado"
             name="degree"
             value={degree}
             onChange={(e) => onChange(e)}
@@ -69,16 +69,16 @@ const AddEducation = ({ addEducation, history, removeAlerts }) => {
           />
         </div>
         <div className="form-group">
+          <p>* Campo de estudios</p>
           <input
             type="text"
-            placeholder="Campo de estudios"
             name="fieldofstudy"
             value={fieldofstudy}
             onChange={(e) => onChange(e)}
           />
         </div>
         <div className="form-group">
-          <h4>Desde</h4>
+          <p>Desde</p>
           <input
             type="date"
             name="from"
@@ -87,7 +87,7 @@ const AddEducation = ({ addEducation, history, removeAlerts }) => {
           />
         </div>
         <div className="form-group">
-          <h4>Hasta</h4>
+          <p>Hasta</p>
           <input
             type="date"
             name="to"
@@ -112,16 +112,16 @@ const AddEducation = ({ addEducation, history, removeAlerts }) => {
           </p>
         </div>
         <div className="form-group">
+          <p>Descripción de programa</p>
           <textarea
             name="description"
             cols="30"
             rows="5"
-            placeholder="Descripción de programa"
             value={description}
             onChange={(e) => onChange(e)}
           ></textarea>
         </div>
-        <input type="submit" className="btn btn-primary my-1" />
+        <input type="submit" value="Subir" className="btn btn-primary my-1" />
         <Link
           className="btn my-1"
           to="/dashboard"
