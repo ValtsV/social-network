@@ -15,7 +15,7 @@ const PostItem = ({
   addLike,
   removeLike,
   auth,
-  post: { _id, text, name, avatar, user, likes, date },
+  post: { _id, text, name, avatar, user, likes, date, comments },
   clearProfile,
   deletePost,
   showActions = true,
@@ -52,7 +52,8 @@ const PostItem = ({
 
             <Link to={`posts/${_id}`} onClick={() => removeAlerts()}>
               <button className="btn btn-primary">
-                <i className="fas fa-comment"></i>
+                <i className="fas fa-comment"></i>{" "}
+                <span>{comments.length}</span>
               </button>
             </Link>
           </Fragment>
